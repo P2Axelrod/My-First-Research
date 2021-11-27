@@ -61,7 +61,7 @@ class S3DISConfig(Config):
     dataset_task = ''
 
     # Number of CPU threads for the input pipeline
-    input_threads = 0
+    input_threads = 8
 
     #########################
     # Architecture definition
@@ -132,19 +132,19 @@ class S3DISConfig(Config):
     num_kernel_points = 15
 
     # Radius of the input sphere (decrease value to reduce memory cost)
-    in_radius = 1.2
+    in_radius = 2.0
 
     # Size of the first subsampling grid in meter (increase value to reduce memory cost)
-    first_subsampling_dl = 0.03
+    first_subsampling_dl = 0.04
 
     # Radius of convolution in "number grid cell". (2.5 is the standard value)
-    conv_radius = 2.5
+    conv_radius = 5.0
 
     # Radius of deformable convolution in "number grid cell". Larger so that deformed kernel can spread out
     deform_radius = 5.0
 
     # Radius of the area of influence of each kernel point in "number grid cell". (1.0 is the standard value)
-    KP_extent = 1.2
+    KP_extent = 1.0
 
     # Behavior of convolutions in ('constant', 'linear', 'gaussian')
     KP_influence = 'linear'
@@ -176,7 +176,7 @@ class S3DISConfig(Config):
     #####################
 
     # Maximal number of epochs
-    max_epoch = 3
+    max_epoch = 500
 
     # Learning rate management
     learning_rate = 1e-2
@@ -185,10 +185,10 @@ class S3DISConfig(Config):
     grad_clip_norm = 100.0
 
     # Number of batch (decrease to reduce memory cost, but it should remain > 3 for stability)
-    batch_num = 1
+    batch_num = 10
 
     # Number of steps per epochs
-    epoch_steps = 5
+    epoch_steps = 500
 
     # Number of validation examples per epoch
     validation_size = 50
@@ -200,8 +200,8 @@ class S3DISConfig(Config):
     augment_scale_anisotropic = True
     augment_symmetries = [True, False, False]
     augment_rotation = 'vertical'
-    augment_scale_min = 0.9
-    augment_scale_max = 1.1
+    augment_scale_min = 0.8
+    augment_scale_max = 1.2
     augment_noise = 0.001
     augment_color = 0.8
 
