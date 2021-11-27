@@ -1,6 +1,7 @@
 配置环境的命令
 ```
 conda create -n Axelrod python=3.7
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 pip install -r requirements.txt
 conda activate Axelrod
 ```
