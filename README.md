@@ -5,7 +5,7 @@ pip install -r requirements.txt
 ```
 cuda拓展的编译
 ```
-cd RFCR-Pytorch/KPConv-deform/cpp_wrappers
+cd RFCR-KPConv/cpp_wrappers
 sh compile_wrappers.sh
 ```
 
