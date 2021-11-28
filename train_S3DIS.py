@@ -185,7 +185,7 @@ class S3DISConfig(Config):
     grad_clip_norm = 100.0
 
     # Number of batch (decrease to reduce memory cost, but it should remain > 3 for stability)
-    batch_num = 10
+    batch_num = 6
 
     # Number of steps per epochs
     epoch_steps = 500
