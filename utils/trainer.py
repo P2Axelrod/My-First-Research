@@ -585,7 +585,7 @@ class ModelTrainer:
                 files = val_loader.dataset.files
                 for i, file_path in enumerate(files):
                     pot_points = np.array(val_loader.dataset.pot_trees[i].data, copy=False)
-                    cloud_name = file_path.split('\\')[-1]
+                    cloud_name = file_path.split('/')[-1]
                     pot_name = os.path.join(pot_path, cloud_name)
                     print(cloud_name)
                     pots = val_loader.dataset.potentials[i].numpy().astype(np.float32)
