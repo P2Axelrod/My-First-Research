@@ -1,0 +1,17 @@
+batch_size: 16
+normal: True
+gpu: 0
+num_point: 1024
+num_votes: 3
+log_dir: "Hengshuang"
+
+defaults:
+  - model: Hengshuang
+
+hydra:
+  run:
+    dir: log/partseg/${model.name}
+
+  sweep:
+    dir: log/partseg
+    subdir: ${model.name}

@@ -1,0 +1,22 @@
+batch_size: 8
+epoch: 200
+learning_rate: 1e-3
+gpu: 0
+num_point: 1024
+optimizer: Adam
+weight_decay: 1e-4
+normal: True
+lr_decay: 0.7
+step_size: 10
+test_area: 5
+defaults:
+  - model: Hengshuang
+
+hydra:
+  run:
+    dir: log/semseg/${model.name}
+
+  sweep:
+    dir: log/semseg
+    subdir: ${model.name}
+
