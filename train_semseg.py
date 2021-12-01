@@ -55,14 +55,10 @@ def main(args):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.gpu)
     logger = logging.getLogger(__name__)
 
-    # root = 'data/Stanford3dDataset_v1.2_Aligned_Version/'
-    root = hydra.utils.to_absolute_path(
-        '/home/dell/Axelrod/Point-Transformers-master/data/s3dis/trainval_fullarea')
-    # root = hydra.utils.to_absolute_path(
-    #     '/home/dell/Axelrod/Point-Transformers-master/data/s3dis/test')
+    root = hydra.utils.to_absolute_path('./data/s3dis/trainval_fullarea/')
     args.input_dim = 9  # (xyzrgbx'y'z')
     args.num_class = 13
-    NUM_CLASSES = 13
+    NUM_CLASSES = args.num_class
     NUM_POINT = args.num_point
     BATCH_SIZE = args.batch_size
 
@@ -182,7 +178,7 @@ def main(args):
         logger.info('Training accuracy: %f' %
                     (total_correct / float(total_seen)))
 
-        if epoch % 5 == 0:
+        if epoch % 50 == 0:
             logger.info('Save model...')
             savepath = 'best_model.pth'
             logger.info('Saving at %s' % savepath)
